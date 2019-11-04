@@ -128,4 +128,4 @@ CookieCart.getCookie(key), CookieCart.writeCookie(key, value, expiry), CookieCar
 ```
 
 # Credits
-I just came back in web developing few months ago so i always search for tips in web while coding so i want to give credit to all people that also shared their work that gave me idea on how to make this. 
+Credits to all developers that shared their works publicly that made me learn a lot after years of hiatus in web developing.   
