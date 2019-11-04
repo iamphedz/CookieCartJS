@@ -23,7 +23,7 @@
 
     // cookie cart initialization
     CookieCart.init = () => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         return cart ? cart : CookieCart.newInstance();
     };
 
@@ -56,11 +56,11 @@
             CookieCart.makeExpiration()
         );
 
-        return CookieCart.get();
+        return CookieCart.getInstance();
     };
 
     // returns existing cart instance
-    CookieCart.get = () => {
+    CookieCart.getInstance = () => {
         return CookieCart.getCookie(Settings.storageKey)
             ? JSON.parse(CookieCart.getCookie(Settings.storageKey))
             : false;
@@ -68,7 +68,7 @@
 
     // add new item to cart
     CookieCart.addItem = (id, name, price, qty, meta = null) => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         if (cart) {
             cart.items.push({
                 id: id,
@@ -83,7 +83,7 @@
 
     // find and return item with specified id
     CookieCart.getItem = id => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         if (cart) {
             var itemIndex = cart.items.findIndex(item => item.id == id);
             return itemIndex < 0 ? false : cart.items[itemIndex];
@@ -93,7 +93,7 @@
 
     // updates item with specified id
     CookieCart.updateItem = (id, key, val) => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         if (cart) {
             var itemIndex = cart.items.findIndex(item => item.id == id);
             if (itemIndex < 0) return false;
@@ -105,13 +105,13 @@
 
     // returns current count of items in cart
     CookieCart.itemCount = () => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         return cart ? Object.entries(cart.items).length : null;
     };
 
     // removes an item from cart with specified id
     CookieCart.removeItem = id => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         if (cart) {
             var itemIndex = cart.items.findIndex(item => item.id == id);
             if (itemIndex < 0) return false;
@@ -125,13 +125,13 @@
 
     // get all items in cart
     CookieCart.getAllItems = () => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         return cart ? (cart.items.length > 0 ? cart.items : false) : false;
     };
 
     // returns cart data w/o meta data of items
     CookieCart.rawData = () => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         if (cart) {
             cart.items = CookieCart.rawItems();
             return cart;
@@ -141,7 +141,7 @@
 
     // returns cart items w/o its meta data
     CookieCart.rawItems = () => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         if (cart) {
             let plainItems = [];
             cart.items.map(item => {
@@ -159,7 +159,7 @@
 
     // removes all items in cart
     CookieCart.removeAllItems = () => {
-        var cart = CookieCart.get();
+        var cart = CookieCart.getInstance();
         if (cart) {
             cart.items = [];
             CookieCart.store(cart);
