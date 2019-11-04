@@ -25,80 +25,80 @@ CookieCart.init();
 ```
 
 
-Creates new cart instance.
+## Creates new cart instance.
 ```javascript
 CookieCart.newInstance();
 ```
 
 
-Destroys current cart instance.
+## Destroys current cart instance.
 ```javascript
 CookieCart.destroy();
 ```
 
 
-Stores the cart instance.
+## Stores the cart instance.
 ```javascript
 CookieCart.store();
 ```
 
 
-Returns the cart instance.
+## Returns the cart instance.
 ```javascript
 CookieCart.get();
 ```
 
 
-Adds item to cart
+## Adds item to cart
 NOTE: meta = extra data related to the item (optional)
 ```javascript
 CookieCart.addItem(id, name, price, qty, meta = null);
 ```
 
 
-Finds an item with given id and returns it.
+## Finds an item with given id and returns it.
 ```javascript
 CookieCart.getItem(id);
 ```
 
 
-Updates an item's value
+## Updates an item's value
 ```javascript
 CookieCart.updateItem(id, key, val);
 ```
 
 
-Removes an item with given id.
+## Removes an item with given id.
 ```javascript
 CookieCart.removeItem(id);
 ```
 
 
-Returns all items in cart.
+## Returns all items in cart.
 ```javascript
 CookieCart.getAllItems();
 ```
 
 
-Returns cart instance w/o its item's meta data.
+## Returns cart instance w/o its item's meta data.
 ```javascript
 CookieCart.rawData();
 ```
 
 
-Returns all items in cart w/o its meta data.
+## Returns all items in cart w/o its meta data.
 ```javascript
 CookieCart.getPlainItems();
 ```
 
 
-Removes all items in cart.
+## Removes all items in cart.
 ```javascript
 CookieCart.removeAllItems();
 ```
 
 
-Basic functions that handles cart instance cookie manipulation.
+## Basic functions that handles cart instance cookie manipulation.
 ```javascript
 CookieCart.getCookie(key), CookieCart.writeCookie(key, value, expiry), CookieCart.deleteCookie(key)
 ```
