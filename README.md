@@ -23,7 +23,7 @@ CookieCart.configure({
         expiration: 60
 });
 ```
-Note: Configure it in your main js file after import
+Note: Configure it in your main js file before initializing a cart instance.
 
 
 # Setup
