@@ -29,7 +29,7 @@ When using Vue.js, put this in your main js file:
 import CookieCart from "./CookieCart"; // path to this module
 Object.defineProperty(Vue.prototype, "$CookieCart", { value: CookieCart });
 
-Vue.prototype.$CookieCart.init();
+Vue.prototype.$CookieCart.init(); // initialize it in your main js file
 ```
 Then you can call it on all of your components using 'this.$CookieCart.(...)';
 
