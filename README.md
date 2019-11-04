@@ -19,7 +19,7 @@ var Settings = (CookieCart.settings = {
 
 # How To Use
 
-Initialize the shopping cart. It creates new cart instance if previous instance has expired. It returns the cart instance. I recommend requiring/importing it in your main js file.
+Initialize the shopping cart. It creates new cart instance if previous instance has expired or non-existing. It returns the cart instance. I recommend requiring/importing it in your main js file.
 ```javascript
 CookieCart.init();
 ```
