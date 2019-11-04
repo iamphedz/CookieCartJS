@@ -49,10 +49,10 @@
     };
 
     // stores cart instance
-    CookieCart.store = cookie => {
+    CookieCart.store = cart_instance => {
         return CookieCart.writeCookie(
             Settings.storageKey,
-            JSON.stringify(cookie),
+            JSON.stringify(cart_instance),
             CookieCart.makeExpiration()
         );
     };
