@@ -12,7 +12,7 @@ I created this simple shopping cart module just to help me with my first project
 ```javascript
 var Settings = (CookieCart.settings = {
         storageKey: "cookie_cart_", // key used when storing cart instance to cookie
-        expiration: 1800000 // cookie expiration in milliseconds
+        expiration: 30 // cookie expiration in minutes
     });
 ```
 
