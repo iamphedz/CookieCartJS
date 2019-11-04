@@ -103,3 +103,5 @@ CookieCart.removeAllItems();
 CookieCart.getCookie(key), CookieCart.writeCookie(key, value, expiry), CookieCart.deleteCookie(key)
 ```
 
+# Credits
+I just came back in web developing few months ago so i always search for tips in web while coding so i want to give credit to all people that also shared their work that gave me idea on how to make this. 
