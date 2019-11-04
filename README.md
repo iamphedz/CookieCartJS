@@ -17,13 +17,24 @@ var Settings = (CookieCart.settings = {
 ```
 
 
-# How To Use
+# Setup
 
 Initialize the shopping cart. It creates new cart instance if previous instance has expired or non-existing. It returns the cart instance. I recommend requiring/importing it in your main js file.
 ```javascript
 CookieCart.init();
 ```
 
+When using Vue.js, put this in your main js file:
+```javascript
+import CookieCart from "./CookieCart"; // path to this module
+Object.defineProperty(Vue.prototype, "$CookieCart", { value: CookieCart });
+
+Vue.prototype.$CookieCart.init();
+```
+Then you can call it on all of your components using 'this.$CookieCart.(...)';
+
+
+# How to Use
 
 ## Creates new cart instance.
 ```javascript
