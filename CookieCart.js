@@ -129,18 +129,18 @@
         return cart ? (cart.items.length > 0 ? cart.items : false) : false;
     };
 
-    // returns cart data with items w/o its meta data
+    // returns cart data w/o meta data of items
     CookieCart.rawData = () => {
         var cart = CookieCart.get();
         if (cart) {
-            cart.items = CookieCart.getPlainItems();
+            cart.items = CookieCart.rawItems();
             return cart;
         }
         return false;
     };
 
-    // returns a filtered cart items w/o its meta data
-    CookieCart.getPlainItems = () => {
+    // returns cart items w/o its meta data
+    CookieCart.rawItems = () => {
         var cart = CookieCart.get();
         if (cart) {
             let plainItems = [];
