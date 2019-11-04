@@ -17,8 +17,8 @@
     CookieCart.version = "0.0.1";
 
     var Settings = (CookieCart.settings = {
-        storageKey: "cookie_cart_",
-        expiration: 1800000 // cookie expiration in milliseconds
+        storageKey: "cookie_cart_", // key used when storing cart instance to cookie
+        expiration: 30 // cookie expiration in minutes
     });
 
     // cookie cart initialization
@@ -86,7 +86,7 @@
         var cart = CookieCart.get();
         if (cart) {
             var itemIndex = cart.items.findIndex(item => item.id == id);
-            return itemIndex == -1 ? false : cart.items[itemIndex];
+            return itemIndex < 0 ? false : cart.items[itemIndex];
         }
         return false;
     };
@@ -96,7 +96,7 @@
         var cart = CookieCart.get();
         if (cart) {
             var itemIndex = cart.items.findIndex(item => item.id == id);
-            if (itemIndex == -1) return false;
+            if (itemIndex < 0) return false;
             cart.items[itemIndex][key] = val;
             CookieCart.store(cart);
         }
@@ -114,7 +114,7 @@
         var cart = CookieCart.get();
         if (cart) {
             var itemIndex = cart.items.findIndex(item => item.id == id);
-            if (itemIndex == -1) return false;
+            if (itemIndex < 0) return false;
             cart.items = cart.items.filter(item => {
                 return item.id != id;
             });
@@ -169,7 +169,7 @@
 
     // makes UTC format expiration for the cart instance
     CookieCart.makeExpiration = () => {
-        return new Date(Date.now() + Settings.expiration).toUTCString();
+        return new Date(Date.now() + Settings.expiration * 60000).toUTCString();
     };
 
     // get specific cookie with given key
