@@ -18,7 +18,7 @@
 
     var Settings = (CookieCart.settings = {
         storageKey: "cookie_cart_",
-        expiration: 1800000 // session expiration in milliseconds
+        expiration: 1800000 // cookie expiration in milliseconds
     });
 
     // cookie cart initialization
