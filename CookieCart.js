@@ -14,12 +14,23 @@
 })(typeof self !== "undefined" ? self : this, function() {
     var CookieCart = {};
 
-    CookieCart.version = "1.0.0";
+    CookieCart.version = "1.1.0";
 
     var Settings = (CookieCart.settings = {
-        storageKey: "cookie_cart_", // key used when storing cart instance to cookie
+        storageKey: "_cookie_cart_", // key used when storing cart instance to cookie
         expiration: 30 // cookie expiration in minutes
     });
+
+    // updates configuration
+    CookieCart.configure = options => {
+        var key, value;
+        for (key in options) {
+            value = options[key];
+            if (value !== undefined && options.hasOwnProperty(key))
+                Settings[key] = value;
+        }
+        return this;
+    };
 
     // cookie cart initialization
     CookieCart.init = () => {
