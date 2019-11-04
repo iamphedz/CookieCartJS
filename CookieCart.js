@@ -50,13 +50,11 @@
 
     // stores cart instance
     CookieCart.store = cookie => {
-        CookieCart.writeCookie(
+        return CookieCart.writeCookie(
             Settings.storageKey,
             JSON.stringify(cookie),
             CookieCart.makeExpiration()
         );
-
-        return CookieCart.getInstance();
     };
 
     // returns existing cart instance
