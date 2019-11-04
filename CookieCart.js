@@ -14,7 +14,7 @@
 })(typeof self !== "undefined" ? self : this, function() {
     var CookieCart = {};
 
-    CookieCart.version = "0.0.1";
+    CookieCart.version = "1.0.0";
 
     var Settings = (CookieCart.settings = {
         storageKey: "cookie_cart_", // key used when storing cart instance to cookie
