@@ -1,18 +1,18 @@
 # CookieCartJS (v1.1.0)
-A JavaScript-Based Shopping Cart. Cart instance is saved as cookie. Adjust its expiration on its Settings.
+A JavaScript-Based Shopping Cart. Cart instance is saved as cookie.
 
 
 
 
 # Introduction
-I created this simple shopping cart module just to help me with my first project. I want to share it to all in hopes that will be of help to you also, and also get some feedback and suggestions to improve it.
+I created this simple shopping cart module just to help me with my first project. I want to share it to all in hopes that will be of help to others too, and also get some feedback and suggestions to improve it.
 
 
 
 
 # Setup
 
-Initialize the shopping cart. It creates new cart instance if previous instance has expired or non-existing. I recommend requiring/importing it in your main js file.
+Initialize the cart instance. It creates a new instance if previous instance has expired or non-existing. I recommend requiring/importing it in your main js file.
 ```javascript
 CookieCart.init();
 ```
@@ -30,21 +30,20 @@ this.$CookieCart.(...);
 ```
 
 ## Settings
-This is the default settings:
+Default Settings:
 ```javascript
 var Settings = (CookieCart.settings = {
         storageKey: "_cookie_cart_", // key used when storing cart instance to cookie
         expiration: 30 // cookie expiration in minutes
     });
 ```
-You can also edit settings outside its source using this:
+You can configure it outside its source by including this before initializing it:
 ```javascript
 CookieCart.configure({
         storageKey: "custom_cart_key",
         expiration: 60
 });
 ```
-Note: Configure it in your main js file before initializing a cart instance.
 
 
 
