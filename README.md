@@ -9,12 +9,21 @@ I created this simple shopping cart module just to help me with my first project
 
 
 # Settings
+This is the default settings:
 ```javascript
 var Settings = (CookieCart.settings = {
-        storageKey: "cookie_cart_", // key used when storing cart instance to cookie
+        storageKey: "_cookie_cart_", // key used when storing cart instance to cookie
         expiration: 30 // cookie expiration in minutes
     });
 ```
+You can also edit settings outside its source using this:
+```javascript
+CookieCart.configure({
+        storageKey: "custom_cart_key",
+        expiration: 60
+});
+```
+Note: Configure it in your main js file after import
 
 
 # Setup
@@ -35,6 +44,7 @@ Then you can call it on all of your components using
 ```javascript
 this.$CookieCart.(...);
 ```
+
 
 
 # How to Use
