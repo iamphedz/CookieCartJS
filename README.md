@@ -31,7 +31,10 @@ Object.defineProperty(Vue.prototype, "$CookieCart", { value: CookieCart });
 
 Vue.prototype.$CookieCart.init(); // initialize it in your main js file
 ```
-Then you can call it on all of your components using 'this.$CookieCart.(...)';
+Then you can call it on all of your components using 
+```javascript
+this.$CookieCart.(...);
+```
 
 
 # How to Use
@@ -42,32 +45,32 @@ CookieCart.newInstance();
 ```
 
 
-## Destroys current cart instance.
-```javascript
-CookieCart.destroy();
-```
-
-
-## Stores the cart instance.
-```javascript
-CookieCart.store();
-```
-
-
-## Returns the cart instance.
+## Returns existing cart instance.
 ```javascript
 CookieCart.getInstance();
 ```
 
 
+## Destroys existing cart instance.
+```javascript
+CookieCart.destroy();
+```
+
+
+## Stores/Overwrites cart instance.
+```javascript
+CookieCart.store(cart_instance);
+```
+
+
 ## Adds item to cart
-NOTE: meta = extra data related to the item (optional)
+NOTE: meta = optional item data
 ```javascript
 CookieCart.addItem(id, name, price, qty, meta = null);
 ```
 
 
-## Finds an item with given id and returns it.
+## Finds and returns an item with given id
 ```javascript
 CookieCart.getItem(id);
 ```
@@ -85,7 +88,7 @@ CookieCart.removeItem(id);
 ```
 
 
-## Returns all items in cart.
+## Returns all items from cart.
 ```javascript
 CookieCart.getAllItems();
 ```
@@ -97,13 +100,13 @@ CookieCart.rawData();
 ```
 
 
-## Returns all items in cart w/o their meta data.
+## Returns all items from cart w/o their meta data.
 ```javascript
 CookieCart.rawItems();
 ```
 
 
-## Removes all items in cart.
+## Removes all items from cart.
 ```javascript
 CookieCart.removeAllItems();
 ```
