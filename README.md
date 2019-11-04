@@ -1,5 +1,5 @@
 # CookieCartJS
-A JavaScript-Based Shopping Cart. Cart instance is saved as cookie. Adjust its expiration on its Settings value.
+A JavaScript-Based Shopping Cart. Cart instance is saved as cookie. Adjust its expiration on its Settings.
 
 
 
