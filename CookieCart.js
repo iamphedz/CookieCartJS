@@ -17,7 +17,7 @@
     CookieCart.version = "1.2.0";
 
     var Settings = (CookieCart.settings = {
-        storageKey: "_cookie_cart_", // key used when storing cart instance to cookie
+        storageKey: "cookie_cart", // key used when storing cart instance to cookie
         expiration: 30, // cookie expiration in minutes
         fees: {} // included fees
     });
@@ -42,11 +42,9 @@
     // generates a new cart instance
     CookieCart.newInstance = () => {
         return CookieCart.store({
-            session_id:
-                Settings.storageKey +
-                Math.random()
-                    .toString(36)
-                    .substr(2),
+            session_id: Math.random()
+                .toString(36)
+                .substr(2),
             items: [],
             fees: Settings.fees
         });
