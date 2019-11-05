@@ -57,28 +57,28 @@ CookieCart.init(); // initialize it in your main js file
 
 # How to Use
 
-## Create new instance.
+## Create new instance
 This creates and returns a new cart instance with new session id.
 ```javascript
 CookieCart.newInstance();
 ```
 
 
-## Return existing instance.
-This returns the existing cart instance. It returns false when instance doesn't exist.
+## Return existing instance
+This returns the existing cart instance.
 ```javascript
 CookieCart.getInstance();
 ```
 
 
-## Destroy existing instance.
+## Destroy existing instance
 This deletes the existing cart instance.
 ```javascript
 CookieCart.destroy();
 ```
 
 
-## Store instance.
+## Store instance
 This stores the cart instance to cookie storage with specified storage key in settings.
 ```javascript
 CookieCart.store(cart_instance);
@@ -107,35 +107,35 @@ CookieCart.updateItem(id, key, val);
 ```
 
 
-## Remove an item with given id.
+## Remove an item with given id
 This removes an item with given id.
 ```javascript
 CookieCart.removeItem(id);
 ```
 
 
-## Return all items from cart.
+## Return all items from cart
 This returns all items from cart.
 ```javascript
 CookieCart.getAllItems();
 ```
 
 
-## Return cart instance w/o the item's meta data.
+## Return cart instance w/o the item's meta data
 This returns a simplified cart instance data w/o its item's meta data.
 ```javascript
 CookieCart.rawData();
 ```
 
 
-## Return all items from cart w/o their meta data.
+## Return all items from cart w/o their meta data
 This returns all items from cart w/o their meta data.
 ```javascript
 CookieCart.rawItems();
 ```
 
 
-## Remove all items in cart.
+## Remove all items in cart
 This removes all items in cart
 ```javascript
 CookieCart.removeAllItems();
@@ -149,7 +149,7 @@ CookieCart.updateFees(key, value);
 ```
 
 
-## Basic functions that handles cart instance cookie manipulation.
+## Basic functions that handles cart instance cookie manipulation
 These are basic functions in getting, saving, and deleting cookie cart data.
 ```javascript
 CookieCart.getCookie(key), CookieCart.writeCookie(key, value, expiry), CookieCart.deleteCookie(key)
