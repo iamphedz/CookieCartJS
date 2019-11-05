@@ -14,11 +14,12 @@
 })(typeof self !== "undefined" ? self : this, function() {
     var CookieCart = {};
 
-    CookieCart.version = "1.1.0";
+    CookieCart.version = "1.2.0";
 
     var Settings = (CookieCart.settings = {
         storageKey: "_cookie_cart_", // key used when storing cart instance to cookie
-        expiration: 30 // cookie expiration in minutes
+        expiration: 30, // cookie expiration in minutes
+        fees: {} // included fees
     });
 
     // updates configuration
@@ -47,10 +48,7 @@
                     .toString(36)
                     .substr(2),
             items: [],
-            fees: {
-                shipping: 0,
-                discount: 0
-            }
+            fees: Settings.fees
         });
     };
 
