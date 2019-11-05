@@ -1,4 +1,4 @@
-# CookieCartJS (v1.1.0)
+# CookieCartJS (v1.2.0)
 A JavaScript-Based Shopping Cart. Cart instance is saved as cookie.
 
 
