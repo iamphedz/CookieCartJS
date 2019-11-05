@@ -34,14 +34,19 @@ Default Settings:
 ```javascript
 var Settings = (CookieCart.settings = {
         storageKey: "_cookie_cart_", // key used when storing cart instance to cookie
-        expiration: 30 // cookie expiration in minutes
+        expiration: 30, // cookie expiration in minutes
+        fees: {} // included fees
     });
 ```
 You can configure it outside its source by including this before initializing it:
 ```javascript
 CookieCart.configure({
         storageKey: "custom_cart_key",
-        expiration: 60
+        expiration: 60,
+        fees: {
+                shipping: 0,
+                discount: 0
+        }
 });
 ```
 
