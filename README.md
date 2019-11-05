@@ -130,6 +130,12 @@ CookieCart.removeAllItems();
 ```
 
 
+## Update fee with given key
+```javascript
+CookieCart.updateFees(key, value);
+```
+
+
 ## Basic functions that handles cart instance cookie manipulation.
 ```javascript
 CookieCart.getCookie(key), CookieCart.writeCookie(key, value, expiry), CookieCart.deleteCookie(key)
