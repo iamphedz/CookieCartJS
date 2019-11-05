@@ -14,7 +14,7 @@
 })(typeof self !== "undefined" ? self : this, function() {
     var CookieCart = {};
 
-    CookieCart.version = "1.2.0";
+    CookieCart.version = "1.2.1";
 
     var Settings = (CookieCart.settings = {
         storageKey: "cookie_cart", // key used when storing cart instance to cookie
@@ -146,10 +146,10 @@
 
     // returns cart items w/o its meta data
     CookieCart.rawItems = () => {
-        var cart = CookieCart.getInstance();
-        if (cart) {
+        var items = CookieCart.getAllItems();
+        if (items) {
             let plainItems = [];
-            cart.items.map(item => {
+            items.map(item => {
                 plainItems.push({
                     id: item.id,
                     name: item.name,
@@ -175,6 +175,17 @@
     // makes UTC format expiration for the cart instance
     CookieCart.makeExpiration = () => {
         return new Date(Date.now() + Settings.expiration * 60000).toUTCString();
+    };
+
+    // updates included fee with given key
+    CookieCart.updateFees = (key, value) => {
+        var cart = CookieCart.getInstance();
+        if (cart) {
+            if (!cart.fees[key]) return false;
+            cart.fees[key] = value;
+            CookieCart.store(cart);
+        }
+        return false;
     };
 
     // get specific cookie with given key
