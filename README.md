@@ -57,74 +57,74 @@ CookieCart.init(); // initialize it in your main js file
 
 # How to Use
 
-## Creates new instance.
+## Create new instance.
 ```javascript
 CookieCart.newInstance();
 ```
 
 
-## Returns existing instance.
+## Return existing instance.
 ```javascript
 CookieCart.getInstance();
 ```
 
 
-## Destroys existing instance.
+## Destroy existing instance.
 ```javascript
 CookieCart.destroy();
 ```
 
 
-## Stores/Overwrites instance.
+## Store instance.
 ```javascript
 CookieCart.store(cart_instance);
 ```
 
 
-## Adds item to cart
+## Add item to cart
 NOTE: meta = optional item data
 ```javascript
 CookieCart.addItem(id, name, price, qty, meta = null);
 ```
 
 
-## Finds and returns an item with given id
+## Find and return an item with given id
 ```javascript
 CookieCart.getItem(id);
 ```
 
 
-## Updates an item's value
+## Update an item's value
 ```javascript
 CookieCart.updateItem(id, key, val);
 ```
 
 
-## Removes an item with given id.
+## Remove an item with given id.
 ```javascript
 CookieCart.removeItem(id);
 ```
 
 
-## Returns all items from cart.
+## Return all items from cart.
 ```javascript
 CookieCart.getAllItems();
 ```
 
 
-## Returns cart instance w/o the item's meta data.
+## Return cart instance w/o the item's meta data.
 ```javascript
 CookieCart.rawData();
 ```
 
 
-## Returns all items from cart w/o their meta data.
+## Return all items from cart w/o their meta data.
 ```javascript
 CookieCart.rawItems();
 ```
 
 
-## Removes all items from cart.
+## Remove all items from cart.
 ```javascript
 CookieCart.removeAllItems();
 ```
