@@ -40,6 +40,9 @@ var Settings = (CookieCart.settings = {
 ```
 You can configure it outside its source by including this before initializing it:
 ```javascript
+import CookieCart from "./CookieCart"; // path to this module
+Object.defineProperty(Vue.prototype, "$CookieCart", { value: CookieCart });
+
 CookieCart.configure({
         storageKey: "custom_cart_key",
         expiration: 60,
@@ -48,6 +51,8 @@ CookieCart.configure({
                 discount: 0
         }
 });
+
+Vue.prototype.$CookieCart.init(); // initialize it in your main js file
 ```
 
 
