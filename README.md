@@ -50,25 +50,25 @@ CookieCart.configure({
 
 # How to Use
 
-## Creates new cart instance.
+## Creates new instance.
 ```javascript
 CookieCart.newInstance();
 ```
 
 
-## Returns existing cart instance.
+## Returns existing instance.
 ```javascript
 CookieCart.getInstance();
 ```
 
 
-## Destroys existing cart instance.
+## Destroys existing instance.
 ```javascript
 CookieCart.destroy();
 ```
 
 
-## Stores/Overwrites cart instance.
+## Stores/Overwrites instance.
 ```javascript
 CookieCart.store(cart_instance);
 ```
