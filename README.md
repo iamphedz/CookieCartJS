@@ -28,7 +28,8 @@ Vue.prototype.$CookieCart.init(); // initialize it in your main js file
 Then you can call it on all of your components using
 
 ```javascript
-this.$CookieCart.(...);
+this.$CookieCart.(...); // component script or
+$CookieCart.(...); // component template
 ```
 
 ## Settings
