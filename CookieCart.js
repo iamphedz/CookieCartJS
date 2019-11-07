@@ -14,9 +14,10 @@
 })(typeof self !== "undefined" ? self : this, function() {
     var CookieCart = {};
 
-    CookieCart.version = "1.2.1";
+    CookieCart.version = "1.3.0";
 
     var Settings = (CookieCart.settings = {
+        storageType: "cookie",
         storageKey: "cookie_cart", // key used when storing cart instance to cookie
         expiration: 30, // cookie expiration in minutes
         fees: {} // included fees
@@ -35,40 +36,71 @@
 
     // cookie cart initialization
     CookieCart.init = () => {
+        CookieCart.checkIfExpired();
         var cart = CookieCart.getInstance();
         return cart ? cart : CookieCart.newInstance();
     };
 
     // generates a new cart instance
     CookieCart.newInstance = () => {
-        return CookieCart.store({
-            session_id: Math.random()
-                .toString(36)
-                .substr(2),
-            items: [],
-            fees: Settings.fees
-        });
+        let instance =
+            Settings.storageType === "cookie"
+                ? {
+                      session_id: Math.random()
+                          .toString(36)
+                          .substr(2),
+                      items: [],
+                      fees: Settings.fees
+                  }
+                : {
+                      session_id: Math.random()
+                          .toString(36)
+                          .substr(2),
+                      items: [],
+                      fees: Settings.fees,
+                      expiration: CookieCart.makeExpiration()
+                  };
+        return CookieCart.store(instance);
     };
 
     // deletes current cart instance
     CookieCart.destroy = () => {
-        CookieCart.deleteCookie(Settings.storageKey);
+        if (Settings.storageType === "cookie")
+            CookieCart.deleteCookie(Settings.storageKey);
+        else CookieCart.localStorageRemoveCart();
     };
 
     // stores cart instance
     CookieCart.store = cart_instance => {
-        return CookieCart.writeCookie(
-            Settings.storageKey,
-            JSON.stringify(cart_instance),
-            CookieCart.makeExpiration()
-        );
+        return Settings.storageType === "cookie"
+            ? CookieCart.writeCookie(
+                  Settings.storageKey,
+                  JSON.stringify(cart_instance),
+                  CookieCart.makeExpiration()
+              )
+            : CookieCart.localStorageSetCart(JSON.stringify(cart_instance));
     };
 
     // returns existing cart instance
     CookieCart.getInstance = () => {
-        return CookieCart.getCookie(Settings.storageKey)
-            ? JSON.parse(CookieCart.getCookie(Settings.storageKey))
-            : false;
+        return Settings.storageType === "cookie"
+            ? CookieCart.getCookie(Settings.storageKey)
+                ? JSON.parse(CookieCart.getCookie(Settings.storageKey))
+                : false
+            : JSON.parse(CookieCart.localStorageGetCart());
+    };
+
+    CookieCart.checkIfExpired = () => {
+        if (Settings.storageType !== "cookie")
+            if (CookieCart.getInstance().expiration < Date.now()) {
+                CookieCart.localStorageRemoveCart();
+                console.log(
+                    "Previous cart instance has expired. Creating new instance now..."
+                );
+            } else if (!CookieCart.getInstance())
+                console.log(
+                    "Previous cart instance has expired. Creating new instance now..."
+                );
     };
 
     // add new item to cart
@@ -174,7 +206,9 @@
 
     // makes UTC format expiration for the cart instance
     CookieCart.makeExpiration = () => {
-        return new Date(Date.now() + Settings.expiration * 60000).toUTCString();
+        return Settings.storageType === "cookie"
+            ? new Date(Date.now() + Settings.expiration * 60000).toUTCString()
+            : Date.now() + Settings.expiration * 60000;
     };
 
     // updates included fee with given key
@@ -188,6 +222,7 @@
         return false;
     };
 
+    /** Cookie manipulation functions  */
     // get specific cookie with given key
     CookieCart.getCookie = key => {
         var key = key + "=";
@@ -214,6 +249,24 @@
     // deletes a cookie with specified key
     CookieCart.deleteCookie = key => {
         document.cookie = `${key}=; max-age=-1; path=/`;
+    };
+
+    /** localStorage data manipulation */
+
+    CookieCart.localStorageSetCart = data => {
+        localStorage.setItem(Settings.storageKey, data);
+        return CookieCart.localStorageGetCart();
+    };
+
+    CookieCart.localStorageGetCart = () => {
+        return localStorage.getItem(Settings.storageKey)
+            ? localStorage.getItem(Settings.storageKey)
+            : false;
+    };
+
+    CookieCart.localStorageRemoveCart = () => {
+        if (CookieCart.localStorageGetCart())
+            localStorage.removeItem(Settings.storageKey);
     };
 
     return CookieCart;
