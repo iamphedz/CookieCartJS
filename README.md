@@ -2,7 +2,7 @@
 
 A JavaScript-Based Shopping Cart.
 
-v.1.3.0 - You can now configure what storage type you want for your cart instance to be stored (localStorage or cookie).
+v.1.3.0 - You can now configure the storageType where the cart instance will be stored (localStorage or cookie).
 
 # Introduction
 
@@ -168,7 +168,7 @@ This updates a fee with given key.
 CookieCart.updateFees(key, value);
 ```
 
-## Checks if instance has expired.
+## Checks if instance has expired
 
 This checks if cart instance has expired. If storageType is localStorage and instance has expired, it will unset/remove it from localStorage.
 
@@ -176,7 +176,7 @@ This checks if cart instance has expired. If storageType is localStorage and ins
 CookieCart.checkIfExpired();
 ```
 
-## Basic functions that handles cart instance cookie manipulation
+## Methods used in handling data from cookie storage
 
 These are basic functions in getting, saving, and deleting cookie cart data.
 
@@ -186,7 +186,7 @@ CookieCart.getCookie(key),
 	CookieCart.deleteCookie(key);
 ```
 
-## functions in handling data in localStorage
+## Methods used in handling data from localStorage
 
 ```javascript
 CookieCart.localStorageSetCart(cart_instance),
