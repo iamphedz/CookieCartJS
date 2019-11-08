@@ -1,18 +1,15 @@
-# CookieCartJS (v1.3.0)
+# CookieCartJS (v1.4.0)
+
 A JavaScript-Based Shopping Cart.
-
-
 
 # Introduction
 
 I created this simple shopping cart module just to help me with my first project. I want to share it to all in hopes that will be of help to others too, and also get some feedback and suggestions to improve it.
 
-
-
 # Versions
-v.1.3.0 - You can now configure the storageType where the cart instance will be stored (localStorage or cookie). Tip: If you plan on adding meta datas to each items in cart, it'd be better to use localStorage as storageType. browsers can only save up to 4kbs of cookie per domain whereas localStorage has a shared storage size of up to 10mbs with session data.
 
-
+v.1.4.0 - Added getSubTotal() and getTotal() methods.
+v.1.3.0 - Added storageType Settings. choose between cookie and localStorage.
 
 # Setup
 
@@ -196,24 +193,6 @@ This checks if cart instance has expired. If storageType is localStorage and ins
 
 ```javascript
 CookieCart.checkIfExpired();
-```
-
-## Methods used in handling data from cookie storage
-
-These are basic functions in getting, saving, and deleting cookie cart data.
-
-```javascript
-CookieCart.getCookie(key),
-	CookieCart.writeCookie(key, value, expiry),
-	CookieCart.deleteCookie(key);
-```
-
-## Methods used in handling data from localStorage
-
-```javascript
-CookieCart.localStorageSetCart(cart_instance),
-	CookieCart.localStorageGetCart(),
-	CookieCart.localStorageRemoveCart();
 ```
 
 # Credits
