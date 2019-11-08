@@ -6,10 +6,8 @@ A JavaScript-Based Shopping Cart.
 
 I created this simple shopping cart module just to help me with my first project. I want to share it to all in hopes that will be of help to others too, and also get some feedback and suggestions to improve it.
 
-# Versions
-
-v.1.4.0 - Added getSubTotal() and getTotal() methods.
-v.1.3.0 - Added storageType Settings. choose between cookie and localStorage.
+	v.1.4.0 - Added getSubTotal() and getTotal() methods.
+	v.1.3.0 - Added storageType Settings. choose between cookie and localStorage.
 
 # Setup
 
