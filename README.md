@@ -1,12 +1,18 @@
 # CookieCartJS (v1.3.0)
-
 A JavaScript-Based Shopping Cart.
 
-v.1.3.0 - You can now configure the storageType where the cart instance will be stored (localStorage or cookie).
+
 
 # Introduction
 
 I created this simple shopping cart module just to help me with my first project. I want to share it to all in hopes that will be of help to others too, and also get some feedback and suggestions to improve it.
+
+
+
+# Versions
+v.1.3.0 - You can now configure the storageType where the cart instance will be stored (localStorage or cookie). Tip: If you plan on adding meta datas to each items in cart, it'd be better to use localStorage as storageType. browsers can only save up to 4kbs of cookie per domain whereas localStorage has a shared storage size of up to 10mbs with session data.
+
+
 
 # Setup
 
@@ -45,7 +51,7 @@ var Settings = (CookieCart.settings = {
 });
 ```
 
-You can configure it outside its source by including this before initializing it:
+You can configure it outside its source by including this before initializing it in your main js file:
 
 ```javascript
 CookieCart.configure({
