@@ -168,6 +168,22 @@ This updates a fee with given key.
 CookieCart.updateFees(key, value);
 ```
 
+## Return the cart sub total
+
+This updates a fee with given key.
+
+```javascript
+CookieCart.getSubTotal();
+```
+
+## Return the cart total w/ the fees
+
+This updates a fee with given key.
+
+```javascript
+CookieCart.getTotal();
+```
+
 ## Checks if instance has expired
 
 This checks if cart instance has expired. If storageType is localStorage and instance has expired, it will unset/remove it from localStorage.
