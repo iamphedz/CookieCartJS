@@ -1,6 +1,6 @@
 # CookieCartJS (v1.4.0)
 
-A JavaScript-Based Shopping Cart.
+A JavaScript-based Shopping Cart for minimal/medium size item purchases.
 
 # Introduction
 
